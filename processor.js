@@ -22,7 +22,6 @@ queue.on("message", function(m) {
   if (!workers[m.data.event_type] || !m.data.data) {
     return m.next();
   }
-
   workers[m.data.event_type](m.data.data,function(err) {
     if ( err ) {
       console.log(err);
